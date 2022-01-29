@@ -1,9 +1,8 @@
-html{
-	width: 100%;
-	height: 100%;
-	font-size: 18px;
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 	font-family: 'Outfit', sans-serif;
-	background-color: var(--bg);
 
 	/*cores*/
 	--bg: #0d192b;
@@ -13,69 +12,69 @@ html{
 	--cyan:#00fff7;
 }
 body{
+	width: 100vw;
+	height: 100vh;
 	display: flex; 
 	justify-content: center; /*alinha na horizontal*/
 	align-items: center; /*alinha na vertical*/
-	margin: 0;
-	height: 100vh; /*altura 100%*/
-}
-p{
-	margin: 16px auto;
+	background-color: var(--bg);
+	font-size: 18px;
 }
 
-/*** SECTION ***//*CARD*/
-section{
+/********** MAIN CARD **********/
+.card{
+	width: 354px;
 	background-color: var(--bg-card);
-	display: flex;
-	border-radius: 14px;
-	box-shadow: 0 28px 3px 15px #0c1729, 0 30px 10px 46px #0c192c;
-	width: 396px;
-	height: 70vh;
+	color: var(--blue);
+	border-radius: 5%;
+	padding: 18px;
 }
-
 /*** IMAGEM ***/
-.nft-container{
-	position: absolute;
-	width: 340px;
-	height: 350px;
-	margin-top: 26px; 
-	margin-left: 30px;
-}
-.nft-color{
-	background-color: var(--cyan);
-	background-size: cover;
-  	background-position: center;
-  	border-radius: 12px;
-  	width: 340px;
-	height: 350px;
+.nft-image{
+	position: relative;
 }
 .nft-image img{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-size: cover;
-  	background-position: center;
-  	border-radius: 12px;
-  	width: 340px;
-	height: 350px;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 5%;
+}
+.nft-image:hover img{
+	opacity: 0.7;
+}
+.nft-image:hover .nft-image{
+    transition: background-color 1s;
+}
+.nft-image{
+	background-color: var(--cyan);
+	border-radius: 5%;    
+}
+.nft-view img{
+ 	width: 50px;
+ 	height: 50px;
+ 	opacity: 0;
+ 	position: absolute;
+ 	top: 44%;
+ 	left: 44%;
+}
+.nft-image:hover .nft-view img{
+	opacity: 1;
 }
 
-.nft-image:hover{
-	cursor: pointer;
-	opacity: 0.5;
-}
-
-/*** CONTEUDO ***/
+/********** CONTEUDO **********/
 .content{
-	margin: auto;
-	width: 84%;
-	height: 29vh;
-	margin-bottom: 0;
+	width: 100%;
+	height: 240px;
+	margin:auto;
+}
+.description{
+	margin: 16px auto;
 }
 #title{
 	color: var(--white);
 	font-weight: 600;
-	font-size: 26px;
+	font-size: 24px;
+	margin: 20px auto;
 }
 #title:hover{
 	color: var(--cyan);
@@ -84,16 +83,18 @@ section{
 #subtitle{
 	color: var(--blue);
 	font-size: 20px;
+	margin: 20px auto;
 }
 
 /*** VALOR E DATA ***/
 .container{
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	margin: 20px auto 30px auto;
 }
 .unit{
 	display:inline-flex;
-
 }
 /*valor*/
 .price{
@@ -103,14 +104,12 @@ section{
 .unit #ethereum{
 	width: 0.8rem;
 	height: 1.2rem;
-	margin-top: 17px;
 	margin-right: 8px;
 }
 /*tempo*/
 .unit #clock{
 	width: 1.1rem;
 	height: 1.1rem;
-	margin-top: 17px;
 	margin-right: 8px;
 }
 .time{
@@ -128,18 +127,17 @@ hr{
 /*** CREDITOS ***/
 .container-credits{
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	margin: 5px;
+	margin: 20px auto 0 auto;
 }
 .container-credits img{
 	border: 1px solid var(--white);
 	border-radius: 100%;
-	width: 36px;
-	height: 36px;
+	width: 40px;
+	height: 40px;
 }
 .container-credits p{
-	margin-left: 20px;
+	margin-left: 20px ;
 	color: var(--blue);
 }
 .container-credits span{
@@ -155,10 +153,10 @@ footer{
 /*fixa a posição do footer no final da página*/	
 	position: absolute;
 	bottom: 0;
-	padding: 18px;
+	padding: 10px;
 }
 .attribution{ 
-	font-size: 16px; 
+	font-size: 12px; 
 	text-align: center; 
 	color: var(--white);
 }
@@ -171,97 +169,10 @@ footer{
 }
 
 /*** RESPONSIVO ***/
-@media (max-width: 1440px){
-	section{
-		width: 24vw;
-		height: 72vh;
-		box-shadow: 0 14px 3px 15px #0c1729, 0 16px 10px 46px #0c192c;
-	}
-	.nft-container{
-		width: 250px;
-		height: 250px;
-		margin-top: 16px; 
-		margin-left: 24px;
-	}
-	.nft-color{
-	  	width: 250px;
-		height: 250px;
-		border-radius: 16px;
-	}
-	.nft-image img{
-	  	width: 250px;
-		height: 250px;
-	}
-	p{
-		font-size: 12px;	
-	}
-	p#title{
-		font-size: 18px;
-		margin: 16px auto 0 auto;
-	}
-	p#subtitle{
-		font-size: 14px;
-		margin: 6px auto;
-	}
-	.container{
-		height: 30px;
-		display: flex;
-		align-items: center;
-	}
-	.unit p{
-		margin: 12px auto;
-	}
-	.unit #ethereum{
-		width: 10px;
-		height: 14px;
-		margin-top: 12px;
-	}
-	.unit #clock{
-		width: 12px;
-		height: 12px;
-		margin-top: 12px;
-	}
-	.container-credits{
-		height: 30px;
-		margin: 0;
-	}
-	.container-credits img{
-		width: 24px;
-		height: 24px;
-	}
-	footer .attribution{
-		font-size: 10px;
-	}
-}
-@media (max-width: 376px){
-	section{
-		width: 90vw;
-		height: 80vh;
-	}
-	.nft-container{
-		width: 300px;
-		height: 310px;
-		margin-top: 15px; 
-		margin-left: 18px;
-	}
-	.nft-color{
-	  	width: 300px;
-		height: 310px;
-	}
-	.nft-image img{
-	  	width: 300px;
-		height: 310px;
-	}
-	.nft-image:hover{
-		cursor: none;
-		opacity: 1;
-	}
-	.content{
-		height: 24vh;
-		margin-bottom: 86px;
-	}
-	footer{
-		padding: 5px;
+@media (max-width: 375px){
+	body{
+		width: 100vw;
+		height: 100vh;
 	}
 }
 
